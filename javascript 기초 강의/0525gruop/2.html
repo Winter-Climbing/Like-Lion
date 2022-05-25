@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 400px;
+        }
+        #member{
+            color: orange;
+            font-weight: bolder;
+        }
+        #LLday{
+            color: orangered;
+        }
+        h1{
+            color: peru;
+        }
+        h1,h3{
+            text-align: center;
+        }
+        #logo{
+            display: flex;
+            justify-content: center;
+        }
+        .event{
+            display: flex;
+            justify-content: space-around;
+        }
+        .special-day{
+            border-radius: 20px;
+            background-color: palegoldenrod;
+            text-align: center;
+            padding:5%;
+        }
+        .last-day{
+            border-radius: 20px;
+            background-color: rgb(238, 203, 170);
+            text-align: center;
+            padding:5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>멋쟁이 사자처럼</h1>
+    <br>
+    <div id="logo">
+        <img src="./likelion.png" >
+    </div>
+    <br>
+    <h3>축! 오늘은 <b id="member">회원</b>님이 멋쟁이 사자처럼이 되신지 <b id="LLday">0일째</b>되는 날입니다.</h3>
+    <hr>
+    <div class="event">
+        <section class='last-day'>
+            <b class='title'>멋사 OT</b>
+            <div class='date-box'>
+                <p id='OT'>0일 지남</p>
+                <p class='date'>2022.2.26</p>
+            </div>
+        </section>
+        <section class='special-day'>
+            <b class='title'>아이디어톤 제출일</b>
+            <div class='date-box'>
+                <p id='ideathon'>0일 남음</p>
+                <p class='date'>2022.7.10</p>
+            </div>
+        </section>
+        <section class="special-day">
+            <br>
+            <b class='title'>해커톤</b>
+            <div class='date-box'>
+                <p id='hackathon'>0일 남음</p>
+                <p class='date'>2022.8.19</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+      const LLname = '구본현'
+      let now = new Date();
+      const start = new Date("2022-02-26");
+
+      let timeDiff = now.getTime()-start.getTime();
+      let day = Math.floor(timeDiff/(1000*60*60*24)+1);
+
+      document.getElementById('LLday').innerHTML = day + '일째';
+      document.getElementById('member').innerHTML = LLname;
+
+      document.getElementById('OT').innerHTML = day + '일 지남';
+      
+      const submission = new Date("2022-07-10");
+      let subM = submission.getTime()-now.getTime();
+      let subDay = Math.floor(subM/(1000*60*60*24)+1);
+
+      document.getElementById('ideathon').innerHTML = subDay + '일 남음';
+
+      const remain = new Date('2022-08-19');
+      let re1 = remain.getTime()-now.getTime();
+      let re2 = Math.floor(re1/(1000*60*60*24)+1);
+
+      document.getElementById('hackathon').innerHTML = re2 + '일 남음';
+    </script>
+
+</body>
+</html>

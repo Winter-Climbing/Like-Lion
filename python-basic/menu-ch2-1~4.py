@@ -4,7 +4,7 @@ import random
 import time
 
 # DRY
-# Don;t Repeat Yourself
+# Don't Repeat Yourself
 
 # 파이썬은 들여쓰기가 중요하다!!!
 for x in range(30):

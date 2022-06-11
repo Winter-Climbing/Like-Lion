@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 사용 방법</title>
+  </head>
+  <body>
+    <h1>JS 사용 방법</h1>
+    <script src="./myScript.js"></script>
+
+    <!-- ch 1-3 -->
+    <script>
+      let name = "엄준식";
+      document.write(typeof name);
+    </script>
+
+    <!-- ch 1-4 -->
+    <script>
+      var num = Math.random(); // 0이상~1미만의 실수
+      document.write(num);
+      var ball1 = parseInt(Math.random() * 45 + 1); // 1이상 ~ 46미만의 정수
+      document.write(ball1);
+    </script>
+
+    <!-- ch 1-5 -->
+    <script>
+      var lotto = [];
+      lotto.push(ball1);
+      lotto.push(ball1);
+      lotto.push(ball1);
+      lotto.push(ball1);
+      lotto.push(ball1);
+      lotto.push(ball1);
+      document.write(lotto);
+    </script>
+
+    <!-- ch 1-6 -->
+    <script>
+      // DRY Don't Repeat Yourself
+      for (i = 0; i < 6; i++) {
+        var ball2 = parseInt(Math.random(i) * 45 + 1);
+        if (ball2 < 46) {
+          document.write(`${ball2} `);
+        }
+      }
+
+      var lotto = [];
+      for (var i = 0; i < 6; i++) {
+        lotto.push(parseInt(Math.random() * 45 + 1));
+      }
+      document.write(lotto);
+    </script>
+
+    <!-- ch 1-7 -->
+    <script>
+      var lotto = [];
+      for (var i = 0; i < 6; i++) {
+        var num = parseInt(Math.random() * 45 + 1);
+        if (lotto.indexOf(num) == -1) {
+          lotto.push(num);
+        }
+      }
+      document.write(lotto);
+    </script>
+
+    <!-- ch 1-8 -->
+    <script>
+      // for문은 특정 횟수 만큼 반복
+      // while문은 특정 조건 만큼 반복일 때 주로 사용
+      // .length 배열의 길이
+      var lotto = [];
+      while (lotto.length < 6) {
+        var num = parseInt(Math.random() * 45 + 1);
+        if (lotto.indexOf(num) == -1) {
+          lotto.num(push);
+        }
+      }
+      document.write(lotto);
+    </script>
+
+    <!-- ch 1-9 -->
+    <script>
+      lotto.sort((a, b) => a - b); // sort a-b는 오름차순 a+b는 내림차순
+      document.write(lotto);
+    </script>
+
+    <script>
+      var lotto = [];
+      while (lotto.length < 6) {
+        var num = parseInt(Math.random() * 45 + 1);
+        if (lotto.indexOf(num) == -1) {
+          lotto.push(num);
+        }
+      }
+      lotto.sort((a, b) => a - b);
+      document.write(lotto);
+    </script>
+  </body>
+</html>

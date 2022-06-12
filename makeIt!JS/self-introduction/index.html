@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="container">
+    <h1>자기소개</h1>
+    <textarea
+      onkeydown="counter();"
+      id="jasoseol"
+      class="form-control"
+      rows="3"
+    >
+    </textarea>
+    <span id="count">(0/200)</span>
+
+    <!-- 2-3 -->
+    <script>
+      var content = document.getElementById("jasoseol").value;
+      console.log(content);
+    </script>
+
+    <!-- 2-4 -->
+    <script>
+      var content = document.getElementById("jasoseol").value;
+      console.log(content.length);
+    </script>
+
+    <!-- 2-5 -->
+    <script>
+      // document.getElementById("count").innerHTML = `(${content.length}/200)`;
+    </script>
+
+    <!-- 2-6 -->
+    <script>
+      var counter = () => {
+        var content = document.getElementById("jasoseol").value;
+        document.getElementById("count").innerHTML = `(${content.length}/200)`;
+      };
+      // counter();
+    </script>
+
+    <!-- 2-7 -->
+
+    <!-- 이벤트란 마우스 클릭, 키보드 누름, 값 변화, 페이지 로딩 등을 뜻한다. EX) 키보드를 누를 때 마다-->
+    <!-- 이벤트 핸들링이란 이벤트가 발생하면, 무엇무엇을 해라라는 것을 뜻한다. EX) 글자 수를 세주어라-->
+    <!-- 12번째 줄의 onkeydown="counter();" 로 이벤트 핸들링 표현  -->
+    <!-- var counter = () => {
+      var content = document.getElementById("jasoseol").value;
+      document.getElementById("count").innerHTML = `(${content.length}/200)`;
+    }; -->
+    <!-- 함수 안에서 변수 선언해야 작동 가능 -->
+
+    <!-- 2-8 글자수 제한 -->
+    <script>
+      var counter = () => {
+        var content = document.getElementById("jasoseol").value;
+        if (content.length > 200) {
+          content = content.substring(0, 200);
+          document.getElementById("jasoseol").value = content;
+        }
+        document.getElementById("count").innerHTML = `(${content.length}/200)`;
+      };
+    </script>
+  </body>
+</html>

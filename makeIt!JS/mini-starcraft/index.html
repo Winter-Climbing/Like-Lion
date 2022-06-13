@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- 3-1 -->
+    <h1>jquery 기초</h1>
+    <textarea name="" id="content" cols="30" rows="10"></textarea>
+    <script>
+      console.log($("#content").val());
+    </script>
+
+    <!-- 3-2 -->
+    <button id="click">클릭</button>
+    $('#click').click(hello);
+
+    <!-- 3-3 익명함수란?-->
+    <!-- 한 번만 실행하는 함수일 경우 선언과 호출을 같이하는 함수를 만들 필요가 있다. 이 때 만드는 함수를 익명함수라 한다. -->
+    $('#click').click(function(){ console.log('hello'); })
+  </body>
+</html>

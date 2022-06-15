@@ -1,30 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>스타크래프트</title>
+    <style>
+        .background {
+            position: relative;
+            background-image: url('background.png');
+            background-size: 500px 330px;
+            width: 500px;
+            height: 330px;
+        }
+        #drone {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 60px;
+        }
+        #bunker {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 80px;
+            right: 20px;
+        }
+        #spit {
+            display: none;
+            position: absolute;
+            top: 140px;
+            left: 150px;
+            width: 50px;
+            height: 30px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1 id='hp'>HP: 3</h1>
+    <div class='background'>
+        <img id='drone' src="drone.png" alt="drone">
+        <img id='spit' src="spit.png" alt="spit">
+        <img id='bunker' src="bunker.png" alt="bunker">
+    </div>
     <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <!-- 3-1 -->
-    <h1>jquery 기초</h1>
-    <textarea name="" id="content" cols="30" rows="10"></textarea>
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
     <script>
-      console.log($("#content").val());
+        var hp = 3;
+        $('#drone').click(function() {
+            $('#spit').fadeIn();
+            $('#spit').animate({'left': '+=250px'});
+            $('#spit').fadeOut(function(){
+                hp = hp - 1;
+                $('#hp').text('HP: ' + hp);
+                if (hp == 0) {
+                    $('#bunker').fadeOut();
+                }
+            });
+            $('#spit').css({left: 150});
+        });
     </script>
-
-    <!-- 3-2 -->
-    <button id="click">클릭</button>
-    $('#click').click(hello);
-
-    <!-- 3-3 익명함수란?-->
-    <!-- 한 번만 실행하는 함수일 경우 선언과 호출을 같이하는 함수를 만들 필요가 있다. 이 때 만드는 함수를 익명함수라 한다. -->
-    $('#click').click(function(){ console.log('hello'); })
-  </body>
+</body>
 </html>

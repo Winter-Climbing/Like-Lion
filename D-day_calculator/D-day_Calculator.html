@@ -5,17 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="./D-day_Calculator.js" defer></script>
-    <script></script>
+    <!-- <script src="./D-day_Calculator.js" defer></script> -->
   </head>
   <body>
     <h1>D-day 계산기</h1>
-    <input type="text" id="year" />
+    <input type="text" id="year" placeholder="년도(xxxx)" maxlength="4" />
     <span>년</span>
-    <input type="text" id="month" />
+    <input type="text" id="month" placeholder="월(xx)" maxlength="2" />
     <span>월</span>
-    <input type="text" id="day" />
+    <input type="text" id="day" placeholder="일(xx)" maxlength="2" />
     <span>일</span>
-    <button type="button">클릭</button>
+    <button type="button" id="button">클릭</button>
+    <p>목표 날짜 : <span id="purpose"></span></p>
+    <p>남은 날짜 : <span id="D-day">000</span></p>
+
+    <script defer>
+      let $year = document.querySelector("#year").value;
+      let $month = document.querySelector("#month").value;
+      let $day = document.querySelector("#day").value;
+      let $purpose = document.querySelector("#purpose");
+      let $input = document.querySelector("input");
+      const $button = document.querySelector("button");
+
+      console.log($year);
+      // let $D-day =
+
+      let purpose = `${$year}${$month}${day}`;
+
+      const onClickButton = () => {};
+
+      const yearInput = (e) => {
+        $year = e.target.value;
+      };
+      const monthInput = (e) => {
+        month = e.target.value;
+        console.log(e.target.value);
+      };
+      const dayInput = (e) => {
+        day = e.target.value;
+        console.log(e.target.value);
+      };
+
+      $button.addEventListener("click", onClickButton);
+      // $year.addEventListener("input", yearInput);
+      // $month.addEventListener("input", monthInput);
+      // $day.addEventListener("input", dayInput);
+    </script>
   </body>
 </html>

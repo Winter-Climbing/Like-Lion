@@ -11,12 +11,12 @@
     <h1>D-day 계산기</h1>
     <input type="text" id="year" placeholder="년도(xxxx)" maxlength="4" />
     <span>년</span>
-    <input type="text" id="month" placeholder="월(xx)" maxlength="2" />
+    <input type="textr" id="month" placeholder="월(xx)" maxlength="2" />
     <span>월</span>
     <input type="text" id="day" placeholder="일(xx)" maxlength="2" />
     <span>일</span>
-    <button type="button" id="button">클릭</button>
-    <p>목표 날짜 : <span id="purpose"></span></p>
+    <button type="button" id="button" onclick="on_click_button()">클릭</button>
+    <p>목표 날짜 : <span id="purpose">000</span></p>
     <p>남은 날짜 : <span id="D-day">000</span></p>
 
     <script defer>
@@ -27,12 +27,25 @@
       let $input = document.querySelector("input");
       const $button = document.querySelector("button");
 
-      console.log($year);
+      let now = new Date();
+
+
+
       // let $D-day =
 
-      let purpose = `${$year}${$month}${day}`;
+      const on_click_button = () => {
+        let input_value_year = document.querySelector("#year").value
+        let input_value_month = document.querySelector("#month").value;
+        let input_value_day = document.querySelector("#day").value;
+        document.querySelector('#purpose').innerHTML = `${input_value_year}-${input_value_month}-${input_value_day}`
+      };
 
-      const onClickButton = () => {};
+      let purpose = parseInt(on_click_button());
+
+      let timeDiff = purpose.getTime() - now.getTime();
+      let day2 = parseInt(timeDiff / (1000 * 60 * 60 * 24) + 1);
+      document.querySelector('#D-day').textContent(day2 + '일 남음')
+
 
       const yearInput = (e) => {
         $year = e.target.value;
@@ -46,7 +59,7 @@
         console.log(e.target.value);
       };
 
-      $button.addEventListener("click", onClickButton);
+      // $button.addEventListener("click", onClickButton);
       // $year.addEventListener("input", yearInput);
       // $month.addEventListener("input", monthInput);
       // $day.addEventListener("input", dayInput);

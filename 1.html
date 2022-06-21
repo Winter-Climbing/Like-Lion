@@ -1,34 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body> 
-  
-  <h4> 
-      Change the text of the text field  
-      ,and then click the button. 
-  </h4> 
-  
-  <label for="domTextElement">Name: </label>
-  <input type="text" id="domTextElement" > 
-  
-  <button type="button"  onclick="getValueInput()"> 
-      click me!! 
-  </button> 
-  
-  <p id="valueInput"></p> 
+1. HTML
 
-  <script> 
+<input
+  class="form-control"
+  type="number"
+  placeholder="생년월일 6자리 ex)910504"
+  maxlength="6"
+  oninput="numberMaxLength(this);"
+/>
 
-    const getValueInput = () =>{
-      let inputValue = document.getElementById("domTextElement").value; 
-      document.getElementById("valueInput").innerHTML = inputValue; 
+2. Script
+
+<script>
+  function numberMaxLength(e) {
+    if (e.value.length > e.maxLength) {
+      e.value = e.value.slice(0, e.maxLength);
     }
-    
-  </script> 
-</body> 
-</html>
+  }
+</script>

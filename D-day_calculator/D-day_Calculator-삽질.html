@@ -42,9 +42,23 @@
     <p>남은 날짜 : <span id="D-day">000</span></p>
 
     <script defer>
+      // let $year = document.querySelector("#year").value;
+      // let $month = document.querySelector("#month").value;
+      // let $day = document.querySelector("#day").value;
+      // let $purpose = document.querySelector("#purpose");
+      // let $input = document.querySelector("input");
+      // const $button = document.querySelector("button");
+
       let now = new Date();
 
       const on_click_button = () => {
+        // if (purpose === "") {
+        //   let tset = new Date(purpose_dDay);
+        //   let timeDiff = test.getTime() - now.getTime();
+        //   let day2 = parseInt(timeDiff / (1000 * 60 * 60 * 24) + 1);
+        //   document.querySelector("#D-day").innerHTML = `${day2} 일 남음`;
+        // }
+
         let input_value_year = document.querySelector("#year").value;
         let input_value_month = document.querySelector("#month").value;
         let input_value_day = document.querySelector("#day").value;
@@ -59,26 +73,42 @@
         );
         let timeDiff = dDay.getTime() - now.getTime();
         let day = parseInt(timeDiff / (1000 * 60 * 60 * 24) - 29);
-        // 왜 인지 모르겠지만 29일이 더 추가되서 나타나는 현상이 포착되어 이를 제거해줬음 이유 모르겠음
         document.querySelector("#D-day").innerHTML = `${day} 일 남음`;
 
         if (input_value_month > 12 || input_value_day > 31) {
           location.reload();
           alert("입력한 날짜를 확인하세요!!");
         }
+
+        // document.querySelector("#D-day").innerHTML = `${
+        //   input_value_year - now_year
+        // }년 ${input_value_month - now_month - 1}월 ${
+        //   input_value_day - now.day
+        // }일`;
       };
 
-      const number_max_length = (e) => {
+      function number_max_length(e) {
         if (e.value.length > e.maxLength) {
           e.value = e.value.slice(0, e.maxLength);
         }
-      };
+      }
 
-      // input에 입력되는 값을 전역 변수로 dom에 저장하고 싶었으나 실패했다.
-      // 차선책으로 on_click_button 함수의 지역 변수에는 값이 저장되서 모든 일을 함수 안에서 처리했다.
-      // 따라서 함수 하나가 모든 일을 처리하게 되면서 재사용성이 떨어지는 결과를 초래함
+      // const yearInput = (e) => {
+      //   $year = e.target.value;
+      // };
+      // const monthInput = (e) => {
+      //   month = e.target.value;
+      //   console.log(e.target.value);
+      // };
+      // const dayInput = (e) => {
+      //   day = e.target.value;
+      //   console.log(e.target.value);
+      // };
 
-      // 6월의 경우 31일이 없지만 31을 입력할 경우 계산이 된다. swich를 이용해 해당 경우를 다 막을 수도 있겠지만 그것 말고는 방법이 없나? 무엇보다 그렇게 되면 윤일이 있는 해는 어떻게?
+      // $button.addEventListener("click", onClickButton);
+      // $year.addEventListener("input", yearInput);
+      // $month.addEventListener("input", monthInput);
+      // $day.addEventListener("input", dayInput);
     </script>
   </body>
 </html>

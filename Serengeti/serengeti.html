@@ -21,7 +21,7 @@
       </button>
     </article> -->
     <article class="question">
-      <div class="progress">
+      <div class="progress mt-5">
         <div
           class="progress-bar"
           role="progressbar"
@@ -31,8 +31,15 @@
           aria-valuemax="100"
         ></div>
       </div>
-      <h2>문제</h2>
+      <h2 class="text-center mt-5">문제</h2>
+      <input type="hidden" id="type" value="EI" />
+      <button type="button" id="A" class="btn btn-primary mt-5">Primary</button>
+      <button type="button" id="B" class="btn btn-primary mt-5">Primary</button>
     </article>
+    <input type="hidden" id="EI" value="0" />
+    <input type="hidden" id="SN" value="0" />
+    <input type="hidden" id="TF" value="0" />
+    <input type="hidden" id="JP" value="0" />
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -49,6 +56,11 @@
         $(".start").hide();
         $(".question").show();
       };
+      $("#A").click(function () {
+        let type = $("#type").val();
+        let preValue = $("#" + type).val();
+        $("#" + type).val(parseInt(preValue) + 1);
+      });
     </script>
   </body>
 </html>

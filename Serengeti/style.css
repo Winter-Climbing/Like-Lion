@@ -23,3 +23,18 @@ article {
   margin: 30px;
   text-align: center;
 }
+
+.share {
+  margin: 0 auto;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+  width: 300x;
+}
+
+.banner_img {
+  width: 300px;
+}

@@ -42,9 +42,8 @@
     <p>남은 날짜 : <span id="D-day">000</span></p>
 
     <script defer>
-      let now = new Date();
-
       const on_click_button = () => {
+        let now = new Date();
         let input_value_year = document.querySelector("#year").value;
         let input_value_month = document.querySelector("#month").value;
         let input_value_day = document.querySelector("#day").value;
@@ -57,8 +56,9 @@
           input_value_month,
           input_value_day
         );
+
         let timeDiff = dDay.getTime() - now.getTime();
-        let day = parseInt(timeDiff / (1000 * 60 * 60 * 24) - 29);
+        let day = parseInt(timeDiff / (1000 * 60 * 60 * 24) - 30);
         // 왜 인지 모르겠지만 29일이 더 추가되서 나타나는 현상이 포착되어 이를 제거해줬음 이유 모르겠음
         document.querySelector("#D-day").innerHTML = `${day} 일 남음`;
 
